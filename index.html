@@ -118,12 +118,12 @@
                 console.log(playRound(playerSelection,computerSelection));
                 console.log(playerScore);
 
-                if (playerScore >= 3){
-                    playerScore = 0;
+                if (playerScore > computerScore){
                     return "You won the game!"
-                } else {
-                    playerScore = 0;
+                } else if (playerScore < computerScore){
                     return "You lose. Better luck next time!"
+                } else {
+                    return "Tie game!"
                 }
 
             }
