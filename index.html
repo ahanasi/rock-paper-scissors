@@ -8,6 +8,9 @@
     <body>
         <script>
 
+            let playerScore = 0;
+            let computerScore;
+
             function computerPlay(){
                 plays = ['Rock', 'Paper', 'Scissors'];
                 return play = plays[Math.floor(Math.random() * plays.length)];
@@ -59,7 +62,7 @@
                         
                         break;
 
-                    case 'SCISSSORS':
+                    case 'SCISSORS':
 
                         switch(computerSelection){
                             case 'Rock':
@@ -92,6 +95,7 @@
                 let computerSelection;
                 let playerScore = 0;
                 let computerScore = 0;
+                
                 
                 playerSelection = playerPlay();
                 computerSelection = computerPlay();
