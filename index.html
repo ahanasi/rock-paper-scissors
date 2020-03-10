@@ -10,6 +10,7 @@
 
             const playerSelection = playerPlay();
             const computerSelection = computerPlay();
+            let playerScore = 0;
 
 
             function computerPlay(){
@@ -38,6 +39,7 @@
                                 break;
                             case 'Scissors':
                                 result = "You win! Rock beats Scissors";
+                                playerScore++;
                                 break;
                         }
                         
@@ -48,6 +50,7 @@
                         switch(computerSelection){
                             case 'Rock':
                                 result = "You win! Paper beats Rock";
+                                playerScore++;
                                 break;
                             case 'Paper':
                                 result = "Tie game!";
@@ -67,6 +70,7 @@
                                 break;
                             case 'Paper':
                                 result = "You win! Scissors beats Paper";
+                                playerScore++;
                                 break;
                             case 'Scissors':
                                 result = "Tie game!";
