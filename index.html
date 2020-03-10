@@ -7,10 +7,79 @@
     </head>
     <body>
         <script>
+
+            const playerSelection = 'rock';
+            const computerSelection = computerPlay();
+
+
             function computerPlay(){
                 plays = ['Rock', 'Paper', 'Scissors'];
                 return play = plays[Math.floor(Math.random() * plays.length)];
             }
+
+            function playRound(playerSelection, computerSelection){
+                
+                let result;
+
+                switch (playerSelection.toUpperCase()){
+                    case 'ROCK':
+
+                        switch(computerSelection){
+                            case 'Rock':
+                                result = "Tie Game!";
+                                break;
+                            case 'Paper':
+                                result = "You lose! Paper beats Rock";
+                                break;
+                            case 'Scissors':
+                                result = "You win! Rock beats Scissors";
+                                break;
+                        }
+                        break;
+
+                    case 'PAPER':
+                    
+                        switch(computerSelection){
+                            case 'Rock':
+                                result = "You win! Paper beats Rock";
+                                break;
+                            case 'Paper':
+                                result = "Tie game!";
+                                break;
+                            case 'Scissors':
+                                result = "You lose! Scissots beats Paper";
+                                break;
+                        }
+                        break;
+
+                    case 'SCISSSORS':
+
+                        switch(computerSelection){
+                            case 'Rock':
+                                result = "You lose! Rock beats Scissors";
+                                break;
+                            case 'Paper':
+                                result = "You win! Scissors beats Paper";
+                                break;
+                            case 'Scissors':
+                                result = "Tie game!";
+                                break;
+                        }
+                        break;
+
+                    default: 
+                        result = "Please enter a valid input";
+                        break;
+                }
+
+                return result;   
+
+            }
+            console.log(computerSelection);
+            console.log(playRound(playerSelection,computerSelection));
+
+
+
         </script>
     </body>
 </html>
