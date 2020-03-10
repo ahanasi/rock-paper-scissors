@@ -8,8 +8,8 @@
     <body>
         <script>
 
-            const playerSelection = playerPlay();
-            const computerSelection = computerPlay();
+            let playerSelection;
+            let computerSelection;
             let playerScore = 0;
 
 
@@ -88,11 +88,46 @@
 
             }
             
-            
+            function game(){
+
+                playerSelection = playerPlay();
+                computerSelection = computerPlay();
+                console.log(playRound(playerSelection,computerSelection));
+                console.log(playerScore);
+
+                playerSelection = playerPlay();
+                computerSelection = computerPlay();
+                console.log(playRound(playerSelection,computerSelection));
+                console.log(playerScore);
+
+                playerSelection = playerPlay();
+                computerSelection = computerPlay();
+                console.log(playRound(playerSelection,computerSelection));
+                console.log(playerScore);
+
+                playerSelection = playerPlay();
+                computerSelection = computerPlay();
+                console.log(playRound(playerSelection,computerSelection));
+                console.log(playerScore);
+
+                playerSelection = playerPlay();
+                computerSelection = computerPlay();
+                console.log(playRound(playerSelection,computerSelection));
+                console.log(playerScore);
+
+                if (playerScore >= 3){
+                    playerScore = 0;
+                    return "You won the game!"
+                } else {
+                    playerScore = 0;
+                    return "You lose. Better luck next time!"
+                }
+
+            }
             
             
             // console.log(computerSelection);
-             console.log(playRound(playerSelection,computerSelection));
+             console.log(game());
 
 
 
