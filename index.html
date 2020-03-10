@@ -119,16 +119,21 @@
                 console.log(playRound(playerSelection,computerSelection));
                 console.log(playerScore);
 
-                if (playerScore > computerScore){
+                console.log(checkScore(playerScore,computerScore));
+
+                
+
+            }
+
+            function checkScore(userScore,compScore){
+                if (userScore > compScore){
                     return "You won the game!"
-                } else if (playerScore < computerScore){
+                } else if (userScore < compScore){
                     return "You lose. Better luck next time!"
                 } else {
                     return "Tie game!"
                 }
-
-            }
-            
+            }            
             
             // console.log(computerSelection);
              console.log(game());
