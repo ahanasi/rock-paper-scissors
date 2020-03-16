@@ -100,8 +100,9 @@ function disableButtons(button){
 function displayRoundStatus(playerSelection, computerSelection){
 
     let para = document.createElement('p');        
-        para.textContent = playRound(playerSelection,computerSelection);
-        score.textContent = `Your current score is ${playerScore}/5.`
+        para.textContent = `Round ${counter+1}: ${playRound(playerSelection,computerSelection)}`;
+        userScore.textContent = `Your score: ${playerScore}`;
+        compScore.textContent = `Computer score: ${computerScore}`;
         results.appendChild(para);
     if (counter > 4){
         let final = document.createElement('h4');
@@ -118,7 +119,8 @@ let counter = 0;
 
 const buttons = document.querySelectorAll('.btn');
 const results = document.querySelector('.results');
-const score = document.querySelector('.score');
+const userScore = document.querySelector('.userScore');
+const compScore = document.querySelector('.compScore');
 const final = document.querySelector('.final');
 
 buttons.forEach((button) => {
