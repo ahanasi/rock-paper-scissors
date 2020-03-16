@@ -98,22 +98,15 @@ function disableButtons(button){
 }
 
 function displayRoundStatus(playerSelection, computerSelection){
-    if (counter < 4) {
-        let para = document.createElement('p');        
+
+    let para = document.createElement('p');        
         para.textContent = playRound(playerSelection,computerSelection);
         score.textContent = `Your current score is ${playerScore}/5.`
         results.appendChild(para);
-    } else if (counter = 4){
-        let para = document.createElement('p');
+    if (counter > 4){
         let final = document.createElement('h4');
-        para.textContent = playRound(playerSelection,computerSelection);
         final.textContent = checkScore(playerScore, computerScore);        
-        score.textContent = `Your current score is ${playerScore}/5.`
-        results.appendChild(para);
         results.appendChild(final);
-    } else {
-        
-        return;
     }
     
 }
