@@ -81,20 +81,37 @@ function game(event){
     if (counter <  4) {
         let playerSelection = event.target.textContent;
         let computerSelection = computerPlay();
-        let para = document.createElement('p');        
-        para.textContent = playRound(playerSelection,computerSelection);
-        score.textContent = `Your current score is ${playerScore}/5.`
-        results.appendChild(para);
+        displayRoundStatus(playerSelection,computerSelection);
     } else if (counter = 4) {
         let playerSelection = event.target.textContent;
         let computerSelection = computerPlay();
-        let para = document.createElement('p');
-        let final = document.createElement('h4');
-        para.textContent = playRound(playerSelection,computerSelection);
-        final.textContent = checkScore(playerScore, computerScore);        
-        score.textContent = `Your current score is ${playerScore}/5.`
-        results.appendChild(para);
-        results.appendChild(final);
+        displayRoundStatus(playerSelection,computerSelection);
+        buttons.forEach((button) => {
+            button.disabled = true;
+        });
+
+        return;
+    }
+
+    function displayRoundStatus(playerSelection, computerSelection){
+        if (counter < 4) {
+            let para = document.createElement('p');        
+            para.textContent = playRound(playerSelection,computerSelection);
+            score.textContent = `Your current score is ${playerScore}/5.`
+            results.appendChild(para);
+        } else if (counter = 4){
+            let para = document.createElement('p');
+            let final = document.createElement('h4');
+            para.textContent = playRound(playerSelection,computerSelection);
+            final.textContent = checkScore(playerScore, computerScore);        
+            score.textContent = `Your current score is ${playerScore}/5.`
+            results.appendChild(para);
+            results.appendChild(final);
+        } else {
+            
+            return;
+        }
+        
     }
 
     
