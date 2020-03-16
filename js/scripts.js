@@ -3,9 +3,6 @@ function computerPlay(){
     return play = plays[Math.floor(Math.random() * plays.length)];
 }
 
-function playerPlay(){
-    return prompt("Rock, paper or scissors?", "Enter your choice");
-}
 
 function playRound(playerSelection, computerSelection){
     
