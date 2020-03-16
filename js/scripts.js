@@ -29,6 +29,7 @@ function playRound(playerSelection, computerSelection){
                     break;
             }
             
+            counter++;
             break;
 
         case 'PAPER':
@@ -46,7 +47,7 @@ function playRound(playerSelection, computerSelection){
                     computerScore++;
                     break;
             }
-            
+            counter++;
             break;
 
         case 'SCISSORS':
@@ -64,7 +65,7 @@ function playRound(playerSelection, computerSelection){
                     result = "Tie game!";
                     break;
             }
-            
+            counter++;
             break;
 
         default: 
@@ -77,12 +78,21 @@ function playRound(playerSelection, computerSelection){
 
 function game(event){
 
-    let playerSelection = event.target.textContent;
-    let computerSelection = computerPlay();
-    let para = document.createElement('p');        
-    para.textContent = playRound(playerSelection,computerSelection);
-    score.textContent = `Your score is ${playerScore}/5.`
-    results.appendChild(para);
+    if (counter <  5) {
+        let playerSelection = event.target.textContent;
+        let computerSelection = computerPlay();
+        let para = document.createElement('p');        
+        para.textContent = playRound(playerSelection,computerSelection);
+        score.textContent = `Your score is ${playerScore}/5.`
+        results.appendChild(para);
+    } else {
+        let para = document.createElement('p');
+        para.textContent = "Your game has ended!";
+        return results.appendChild(para);
+        
+    }
+
+    
     
     // ----------- ORIGINAL CODE ----------
 
@@ -130,6 +140,7 @@ function checkScore(userScore,compScore){
 
 let playerScore = 0;
 let computerScore = 0;
+let counter = 0;
 
 const buttons = document.querySelectorAll('.btn');
 const results = document.querySelector('.results');
