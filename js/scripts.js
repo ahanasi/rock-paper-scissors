@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection){
                     result = "Tie game!";
                     break;
                 case 'Scissors':
-                    result = "You lose! Scissots beats Paper";
+                    result = "You lose! Scissors beats Paper";
                     computerScore++;
                     break;
             }
@@ -77,8 +77,10 @@ function playRound(playerSelection, computerSelection){
 
 function game(){
     
-    let playerSelection;
-    let computerSelection;                
+    // ----------- ORIGINAL CODE ----------
+
+    // let playerSelection;
+    // let computerSelection;                
     
     // playerSelection = playerPlay();
     // computerSelection = computerPlay();
@@ -122,14 +124,16 @@ function checkScore(userScore,compScore){
 let playerScore = 0;
 let computerScore = 0;
 
-let computerSelection = computerPlay();
-
 const buttons = document.querySelectorAll('.btn');
+const results = document.querySelector('.results');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
         let playerSelection = e.target.textContent;
-        console.log(playRound(playerSelection,computerSelection));
+        let computerSelection = computerPlay();
+        let para = document.createElement('p');        
+        para.textContent = playRound(playerSelection,computerSelection);
+        results.appendChild(para);
     });
 })
 
