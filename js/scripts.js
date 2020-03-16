@@ -79,6 +79,7 @@ function game(event){
     let computerSelection = computerPlay();
     displayRoundStatus(playerSelection,computerSelection);
     buttons.forEach((button) => disableButtons(button));
+
 }
 
 function checkScore(userScore,compScore){
@@ -104,13 +105,20 @@ function displayRoundStatus(playerSelection, computerSelection){
         userScore.textContent = `Your score: ${playerScore}`;
         compScore.textContent = `Computer score: ${computerScore}`;
         results.appendChild(para);
+
     if (counter > 4){
-        let final = document.createElement('h4');
-        final.textContent = checkScore(playerScore, computerScore);        
+
+
+        final.textContent = checkScore(playerScore, computerScore);
+        newButton.textContent = "New Game?";
+        
         results.appendChild(final);
+        results.append(newButton);
+
     }
     
 }
+
     
 
 let playerScore = 0;
@@ -121,12 +129,14 @@ const buttons = document.querySelectorAll('.btn');
 const results = document.querySelector('.results');
 const userScore = document.querySelector('.userScore');
 const compScore = document.querySelector('.compScore');
-const final = document.querySelector('.final');
+const final = document.createElement('h4');
+const newButton = document.createElement('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => game(e));
 });
 
+newButton.addEventListener('click', () => location.reload());
 
 
 
