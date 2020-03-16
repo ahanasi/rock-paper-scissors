@@ -78,77 +78,11 @@ function playRound(playerSelection, computerSelection){
 
 function game(event){
 
-    if (counter <  4) {
-        let playerSelection = event.target.textContent;
-        let computerSelection = computerPlay();
-        displayRoundStatus(playerSelection,computerSelection);
-    } else if (counter = 4) {
-        let playerSelection = event.target.textContent;
-        let computerSelection = computerPlay();
-        displayRoundStatus(playerSelection,computerSelection);
-        buttons.forEach((button) => disableButtons(button));
-        return;
-    }
-
-    function displayRoundStatus(playerSelection, computerSelection){
-        if (counter < 4) {
-            let para = document.createElement('p');        
-            para.textContent = playRound(playerSelection,computerSelection);
-            score.textContent = `Your current score is ${playerScore}/5.`
-            results.appendChild(para);
-        } else if (counter = 4){
-            let para = document.createElement('p');
-            let final = document.createElement('h4');
-            para.textContent = playRound(playerSelection,computerSelection);
-            final.textContent = checkScore(playerScore, computerScore);        
-            score.textContent = `Your current score is ${playerScore}/5.`
-            results.appendChild(para);
-            results.appendChild(final);
-        } else {
-            
-            return;
-        }
-        
-    }
-
-    function disableButtons(button){
-        button.disabled = true;
-    }
-
-    
-    
-    // ----------- ORIGINAL CODE ----------
-
-    // let playerSelection;
-    // let computerSelection;                
-    
-    // playerSelection = playerPlay();
-    // computerSelection = computerPlay();
-    // console.log(playRound(playerSelection,computerSelection));
-    // console.log("Score for Round 1: " + playerScore);
-
-    // playerSelection = playerPlay();
-    // computerSelection = computerPlay();
-    // console.log(playRound(playerSelection,computerSelection));
-    // console.log("Score for Round 2: " + playerScore);
-
-    // playerSelection = playerPlay();
-    // computerSelection = computerPlay();
-    // console.log(playRound(playerSelection,computerSelection));
-    // console.log("Score for Round 3: " + playerScore);
-
-    // playerSelection = playerPlay();
-    // computerSelection = computerPlay();
-    // console.log(playRound(playerSelection,computerSelection));
-    // console.log("Score for Round 4: " + playerScore);
-
-    // playerSelection = playerPlay();
-    // computerSelection = computerPlay();
-    // console.log(playRound(playerSelection,computerSelection));
-    // console.log("Score for Round 5: " + playerScore);
-
-    // console.log(checkScore(playerScore,computerScore));
-
+    let playerSelection = event.target.textContent;
+    let computerSelection = computerPlay();
+    displayRoundStatus(playerSelection,computerSelection);
+    buttons.forEach((button) => disableButtons(button));
+    return;
 }
 
 function checkScore(userScore,compScore){
@@ -159,6 +93,33 @@ function checkScore(userScore,compScore){
     } else {
         return "Tie game!"
     }
+}
+
+function disableButtons(button){
+    if (counter > 4) {
+        button.disabled = true;
+    }
+}
+
+function displayRoundStatus(playerSelection, computerSelection){
+    if (counter < 4) {
+        let para = document.createElement('p');        
+        para.textContent = playRound(playerSelection,computerSelection);
+        score.textContent = `Your current score is ${playerScore}/5.`
+        results.appendChild(para);
+    } else if (counter = 4){
+        let para = document.createElement('p');
+        let final = document.createElement('h4');
+        para.textContent = playRound(playerSelection,computerSelection);
+        final.textContent = checkScore(playerScore, computerScore);        
+        score.textContent = `Your current score is ${playerScore}/5.`
+        results.appendChild(para);
+        results.appendChild(final);
+    } else {
+        
+        return;
+    }
+    
 }
     
 
