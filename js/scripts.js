@@ -71,7 +71,6 @@ function playRound(playerSelection, computerSelection){
             result = "Please enter a valid input";
             break;
     }
-
     return result;   
 
 }
@@ -123,11 +122,14 @@ function checkScore(userScore,compScore){
 let playerScore = 0;
 let computerScore = 0;
 
+let computerSelection = computerPlay();
+
 const buttons = document.querySelectorAll('.btn');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        console.log(e.target.textContent);
+        let playerSelection = e.target.textContent;
+        console.log(playRound(playerSelection,computerSelection));
     });
 })
 
