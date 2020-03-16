@@ -158,7 +158,8 @@ function checkScore(userScore,compScore){
     } else {
         return "Tie game!"
     }
-}    
+}
+    
 
 let playerScore = 0;
 let computerScore = 0;
@@ -170,7 +171,11 @@ const score = document.querySelector('.score');
 const final = document.querySelector('.final');
 
 buttons.forEach((button) => {
-    button.addEventListener('click', (e) => game(e))
+    button.addEventListener('click', (e) => game(e));
+
+    if (counter >= 4){
+        button.disabled = true;
+    }
 });
 
 
