@@ -75,7 +75,13 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function game(){
+function game(event){
+
+    let playerSelection = event.target.textContent;
+    let computerSelection = computerPlay();
+    let para = document.createElement('p');        
+    para.textContent = playRound(playerSelection,computerSelection);
+    results.appendChild(para);
     
     // ----------- ORIGINAL CODE ----------
 
@@ -128,14 +134,10 @@ const buttons = document.querySelectorAll('.btn');
 const results = document.querySelector('.results');
 
 buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-        let playerSelection = e.target.textContent;
-        let computerSelection = computerPlay();
-        let para = document.createElement('p');        
-        para.textContent = playRound(playerSelection,computerSelection);
-        results.appendChild(para);
-    });
-})
+    button.addEventListener('click', (e) => game(e))
+});
+
+
 
 
 
