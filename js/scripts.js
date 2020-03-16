@@ -78,18 +78,23 @@ function playRound(playerSelection, computerSelection){
 
 function game(event){
 
-    if (counter <  5) {
+    if (counter <  4) {
         let playerSelection = event.target.textContent;
         let computerSelection = computerPlay();
         let para = document.createElement('p');        
         para.textContent = playRound(playerSelection,computerSelection);
-        score.textContent = `Your score is ${playerScore}/5.`
+        score.textContent = `Your current score is ${playerScore}/5.`
         results.appendChild(para);
-    } else {
+    } else if (counter = 4) {
+        let playerSelection = event.target.textContent;
+        let computerSelection = computerPlay();
         let para = document.createElement('p');
-        para.textContent = "Your game has ended!";
-        return results.appendChild(para);
-        
+        let final = document.createElement('h4');
+        para.textContent = playRound(playerSelection,computerSelection);
+        final.textContent = checkScore(playerScore, computerScore);        
+        score.textContent = `Your current score is ${playerScore}/5.`
+        results.appendChild(para);
+        results.appendChild(final);
     }
 
     
@@ -145,6 +150,7 @@ let counter = 0;
 const buttons = document.querySelectorAll('.btn');
 const results = document.querySelector('.results');
 const score = document.querySelector('.score');
+const final = document.querySelector('.final');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => game(e))
