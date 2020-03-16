@@ -79,14 +79,13 @@ function game(event){
     let computerSelection = computerPlay();
     displayRoundStatus(playerSelection,computerSelection);
     buttons.forEach((button) => disableButtons(button));
-    return;
 }
 
 function checkScore(userScore,compScore){
     if (userScore > compScore){
         return "You won the game!"
     } else if (userScore < compScore){
-        return "You lose. Better luck next time!"
+        return "You lost the game. Better luck next time!"
     } else {
         return "Tie game!"
     }
