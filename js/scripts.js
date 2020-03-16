@@ -86,10 +86,7 @@ function game(event){
         let playerSelection = event.target.textContent;
         let computerSelection = computerPlay();
         displayRoundStatus(playerSelection,computerSelection);
-        buttons.forEach((button) => {
-            button.disabled = true;
-        });
-
+        buttons.forEach((button) => disableButtons(button));
         return;
     }
 
@@ -112,6 +109,10 @@ function game(event){
             return;
         }
         
+    }
+
+    function disableButtons(button){
+        button.disabled = true;
     }
 
     
@@ -172,12 +173,7 @@ const final = document.querySelector('.final');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => game(e));
-
-    if (counter >= 4){
-        button.disabled = true;
-    }
 });
-
 
 
 
