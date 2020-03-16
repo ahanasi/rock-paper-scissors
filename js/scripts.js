@@ -1,6 +1,3 @@
-let playerScore = 0;
-let computerScore = 0;
-
 function computerPlay(){
     plays = ['Rock', 'Paper', 'Scissors'];
     return play = plays[Math.floor(Math.random() * plays.length)];
@@ -121,6 +118,18 @@ function checkScore(userScore,compScore){
     } else {
         return "Tie game!"
     }
-}            
+}    
 
-console.log(game());
+let playerScore = 0;
+let computerScore = 0;
+
+const buttons = document.querySelectorAll('.btn');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        console.log(e.target.textContent);
+    });
+})
+
+
+
