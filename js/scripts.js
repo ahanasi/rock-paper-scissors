@@ -81,6 +81,7 @@ function game(event){
     let computerSelection = computerPlay();
     let para = document.createElement('p');        
     para.textContent = playRound(playerSelection,computerSelection);
+    score.textContent = `Your score is ${playerScore}/5.`
     results.appendChild(para);
     
     // ----------- ORIGINAL CODE ----------
@@ -132,6 +133,7 @@ let computerScore = 0;
 
 const buttons = document.querySelectorAll('.btn');
 const results = document.querySelector('.results');
+const score = document.querySelector('.score');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => game(e))
