@@ -69,6 +69,7 @@ function playRound(playerSelection, computerSelection){
             result = "Please enter a valid input";
             break;
     }
+    
     return result;   
 
 }
@@ -107,16 +108,11 @@ function displayRoundStatus(playerSelection, computerSelection){
         results.appendChild(para);
 
     if (counter > 4){
-
-
         final.textContent = checkScore(playerScore, computerScore);
         newButton.textContent = "New Game?";
-        
         results.appendChild(final);
         results.append(newButton);
-
     }
-    
 }
 
     
@@ -137,6 +133,4 @@ buttons.forEach((button) => {
 });
 
 newButton.addEventListener('click', () => location.reload());
-
-
 
